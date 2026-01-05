@@ -33,7 +33,8 @@ class OpenSLR149:
         unique_symbols = set()
         for file_name, syls in rows:
             phoneme_seq = phenomer.run(syls)
-            output_rows.append(f"{file_name}|{phoneme_seq}|tsang")
+            unicode_bo_text = "་".join(syls.split())
+            output_rows.append(f"{file_name}|{unicode_bo_text}")
             unique_symbols.update(phoneme_seq.split())
         
         # Ensure the output directory exists
